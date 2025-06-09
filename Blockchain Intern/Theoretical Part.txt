@@ -1,0 +1,63 @@
+Blockchain Basics:
+
+
+1. Define blockchain in your own words (100–150 words).
+
+-> Blockchain is a digital, decentralized ledger that records transactions securely and transparently across many computers. Think of it as      a shared notebook where every page is a "block," and these pages are linked in a "chain." Each block contains a list of transactions, a timestamp, and a unique code called a hash, which connects it to the previous block. This makes it nearly impossible to alter past records without changing every block, ensuring security. No single person or company controls it; instead, everyone in the network has a copy, and they must agree on new entries. This trust and transparency make blockchain useful for things like tracking goods or verifying identities. It’s best known for powering cryptocurrencies like Bitcoin, but its uses go far beyond, from finance to healthcare, by providing a tamper-proof way to store and share data.
+
+2. List 2 real-life use cases.
+
+->Financial Transactions:
+Blockchain makes money transfers faster and cheaper, especially for cross-border payments. In India, banks like ICICI use blockchain platforms like Ripple to send money abroad without delays from traditional systems.
+
+->Smart Contracts for Agriculture: 
+Blockchain-based smart contracts automate agreements, like crop insurance for farmers. In India, platforms like CropIn use blockchain to create contracts that automatically pay farmers if bad weather damages crops. The terms are coded into the blockchain, ensuring payments are fair, transparent, and tamper-proof.
+
+->Healthcare Records: 
+Blockchain ensures medical records are secure and accessible only to authorized people. For instance, hospitals in India, like Apollo, can use blockchain to store patient data, such as test results or prescriptions. Doctors and patients access it securely, and no one can tamper with the records, improving trust and efficiency in healthcare.
+
+
+3. Block Anatomy
+i. Draw a block showing: data, previous hash, timestamp, nonce, and Merkle root.
+
+-> 
+                 Block Header                   
+Index         : 7                         
+Timestamp     : 2025-06-09 10:03:00       
+Previous Hash : 0987abc123...             
+Nonce         : 24567                     
+Merkle Root   : x7891f... (hash tree)     
+                 Block Data                     
+- Tx1: A → B (₹500)                            
+- Tx2: B → C (₹200)                            
+- Tx3: A → D (₹300)                            
+- Tx4: C → E (₹400)                            
+
+ii. Briefly explain with an example how the Merkle root helps verify data integrity.
+
+->The Merkle root helps verify data integrity by acting like a unique fingerprint for all the transactions in a block. It’s created using a Merkle Tree, where all transaction hashes are combined step-by-step into a single hash. If any transaction changes, the Merkle root changes too, making it easy to spot tampering.
+
+
+Example:
+Suppose a block has these transactions:
+Tx1: Bhanu sends ₹200 to Priya
+
+Tx2: Akshitha sends ₹80 to Sam
+
+Tx3: Chandu sends ₹40 to Tara
+
+First, each transaction gets a hash (e.g., Tx1 → h1, Tx2 → h2, Tx3 → h3). Then, h1 and h2 are paired and hashed (h1+h2 → h12), and h3 is hashed separately. Finally, h12 and h3 are combined into the Merkle Root (h12+h3 → M). Now, if Tx2 changes to ₹90, its hash (h2) updates, changing h12 and the Merkle Root to M’. When the network checks M’ against the original M, the mismatch flags the alteration, proving the data’s integrity is compromised.
+
+4. Consensus Conceptualization
+
+->What is Proof of Work and Why Does It Require Energy?
+Proof of Work (PoW) is a consensus mechanism where miners solve complex cryptographic puzzles to validate transactions and add blocks, as exemplified by Bitcoin. This demands powerful ASICs, consuming over 100 TWh annually, according to the Cambridge Bitcoin Electricity Consumption Index as of June 2025. The energy powers continuous computation and cooling to find the nonce, ensuring security by making past block changes prohibitively expensive. PoW’s intensity secures decentralization but contrasts with greener alternatives.
+
+
+->What is Proof of Stake and How Does It Differ?
+Proof of Stake (PoS) selects validators to create blocks based on staked cryptocurrency, as seen in Ethereum since 2022. Unlike Proof of Work’s energy-intensive mining, PoS uses coin ownership, slashing energy use by over 99%, per Ethereum Foundation data. Validators with more stake, like 5,000 ETH versus 500 ETH, have higher validation odds, favoring wealth over computation. Unlike PoW’s broad participation, PoS may benefit wealthier users, offering a sustainable yet less egalitarian consensus method.
+
+->What is Delegated Proof of Stake and How Are Validators Selected?
+Delegated Proof of Stake (DPoS) allows token holders to vote for 21-27 delegates to validate transactions, as implemented by EOS and Tron. Validators are chosen based on votes weighted by staked tokens, enabling rapid processing—EOS manages thousands of transactions per second. For example, a 1,000 EOS vote boosts a delegate’s selection, with periodic rotations ensuring fairness. It balances participation with performance in modern blockchains.
+
+
